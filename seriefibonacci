@@ -1,0 +1,30 @@
+<?php
+function generarFibonacci($n) {
+    // 1. Validación de entrada
+    if ($n <= 0) {
+        return "El número debe ser positivo";
+    }
+    
+    // 2. Inicialización de variables
+    $fibonacci = array();
+    
+    // 3. Manejamos los dos primeros números de la serie
+    if ($n >= 1) $fibonacci[] = 0;
+    if ($n >= 2) $fibonacci[] = 1;
+    
+    // 4. Generamos el resto de la serie
+    for ($i = 2; $i < $n; $i++) {
+        $fibonacci[] = $fibonacci[$i-1] + $fibonacci[$i-2];
+    }
+    
+    return $fibonacci;
+}
+
+// 5. Ejemplo de uso
+$terminos = 10;
+$resultado = generarFibonacci($terminos);
+
+// 6. Mostramos el resultado
+echo "Los primeros $terminos términos de la serie Fibonacci son:\n";
+echo implode(", ", $resultado);
+?>

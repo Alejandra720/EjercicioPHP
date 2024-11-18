@@ -1,0 +1,38 @@
+<?php
+function esPrimo($numero) {
+    // 1. Validación de casos especiales
+    if ($numero <= 1) {
+        return false;
+    }
+    if ($numero == 2) {
+        return true;
+    }
+    if ($numero % 2 == 0) {
+        return false;
+    }
+    
+    // 2. Verificación de divisibilidad
+    for ($i = 3; $i <= sqrt($numero); $i += 2) {
+        if ($numero % $i == 0) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+// 3. Función para probar un número
+function probarNumeroPrimo($numero) {
+    if (esPrimo($numero)) {
+        echo "$numero es un número primo\n";
+    } else {
+        echo "$numero no es un número primo\n";
+    }
+}
+
+// 4. Ejemplos de uso
+probarNumeroPrimo(17);
+probarNumeroPrimo(24);
+probarNumeroPrimo(2);
+probarNumeroPrimo(1);
+?>
