@@ -1,0 +1,27 @@
+<?php
+function esPalindromo($texto) {
+    // 1. Preparar el texto
+    $texto = strtolower($texto); // Convertir a minúsculas
+    $texto = preg_replace('/[^a-z0-9]/', '', $texto); // Eliminar espacios y caracteres especiales
+    
+    // 2. Obtener la versión invertida
+    $textoInvertido = strrev($texto);
+    
+    // 3. Comparar y retornar resultado
+    return $texto === $textoInvertido;
+}
+
+// 4. Función para probar palíndromos
+function probarPalindromo($texto) {
+    if (esPalindromo($texto)) {
+        echo "\"$texto\" es un palíndromo\n";
+    } else {
+        echo "\"$texto\" no es un palíndromo\n";
+    }
+}
+
+// 5. Ejemplos de uso
+probarPalindromo("Ana");
+probarPalindromo("Anita lava la tina");
+probarPalindromo("Hola mundo");
+?>

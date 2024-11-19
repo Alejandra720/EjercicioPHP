@@ -1,0 +1,30 @@
+<?php
+function contarFrecuenciaCaracteres($cadena) {
+    // Inicializamos un array vacío para almacenar las frecuencias.
+    $frecuencias = [];
+
+    // Recorremos cada carácter de la cadena.
+    for ($i = 0; $i < strlen($cadena); $i++) {
+        $caracter = $cadena[$i]; // Extraemos el carácter en la posición $i.
+
+        // Verificamos si el carácter ya está en el array de frecuencias.
+        if (array_key_exists($caracter, $frecuencias)) {
+            // Si existe, incrementamos su frecuencia en 1.
+            $frecuencias[$caracter]++;
+        } else {
+            // Si no existe, lo agregamos al array con frecuencia inicial de 1.
+            $frecuencias[$caracter] = 1;
+        }
+    }
+
+    // Retornamos el array asociativo con las frecuencias.
+    return $frecuencias;
+}
+
+// Ejemplo de uso
+$texto = "hola mundo";
+$resultado = contarFrecuenciaCaracteres($texto);
+
+// Mostramos el resultado
+print_r($resultado);
+?>
